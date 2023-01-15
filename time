@@ -1,0 +1,52 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+
+using namespace std;
+class Time{
+    private:
+    int h,m,s;
+    public:
+    void set(int hour,int min,int sec){
+        h=hour;
+        m=min;
+        s=sec;
+    }
+    void show(){
+        cout<<h<<":"<<m<<":"<<s;
+    }
+    void normalize(){
+        m=m+(s/60);
+        s=s%60;
+        h=h+(m/60);
+        m=m%60;
+    }
+    Time add(Time t){
+        Time temp;
+        temp.h=h+t.h;
+        temp.m=m+t.m;
+        temp.s=s+t.s;
+        temp.normalize();
+        return temp;
+    }
+};
+
+int main()
+{
+   Time s1,s2,s3;
+   s1.set(10,50,31);
+   s2.set(1,56,31);
+   s3=s1.add(s2);
+   s3.show();
+   
+  
+   
+
+    return 0;
+}
